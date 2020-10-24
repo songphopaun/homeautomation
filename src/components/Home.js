@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import {RiTempHotLine } from 'react-icons/ri'
 import {WiHumidity ,WiDust} from 'react-icons/wi'
 
+import ChartTemp from '../data/ChartTemp'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -13,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight:'30px',
   },
   paper: {
-
     padding: theme.spacing(2),
     textAlign: 'center',
     height:'100px',
@@ -55,6 +56,11 @@ const useStyles = makeStyles((theme) => ({
     margin: '27px',
     color:'#fff'
   },
+  paperChart:{
+    padding: theme.spacing(2),
+    borderRadius:'10px',
+    boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
+  }
 
 
 
@@ -88,8 +94,8 @@ export default function Home(props) {
             <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>{props.humidity}</span></span>
             <span className={classes.homeBoxHumidity}><WiHumidity className={classes.homeBoxIcon}/></span>            
           </Paper>         </Grid>
-        <Grid item xs={12} sm={6} md={6} lg={4}>
-          <Paper className={classes.paper}>xs=12</Paper>
+        <Grid item xs={12} sm={6} md={6} lg={8}>
+          <Paper className={classes.paperChart}><ChartTemp xx={props.xx}/></Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={4}>
           <Paper className={classes.paper}>xs=12</Paper>

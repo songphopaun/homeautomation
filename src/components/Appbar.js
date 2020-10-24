@@ -13,9 +13,9 @@ import DHT from '../data/DHT11'
 
 const useStyles = makeStyles((theme) => ({
     appbar:{
-        background : 'none',
+        background : '#f4f3ef',
         fontFamily : 'Nunito',
-        height:'60px',
+        // height:'60px',
         borderBottom:'1px solid #ddd',
     },
     appbarShift: {
@@ -45,9 +45,9 @@ const useStyles = makeStyles((theme) => ({
         display:'none'
     },
     content:{
-        position:'relative',
-        top:'100px',
         flexGrow: 1,
+        padding: theme.spacing(3),
+
         transition: theme.transitions.create("margin", {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen
@@ -60,7 +60,11 @@ const useStyles = makeStyles((theme) => ({
           easing: theme.transitions.easing.easeOut,
           duration: theme.transitions.duration.enteringScreen
         })
-      }
+      },
+      drawerHeader: {
+        // necessary for content to be below app bar
+        ...theme.mixins.toolbar,
+      },
 }));
 
 export default function Appbar() {
@@ -91,11 +95,11 @@ export default function Appbar() {
             <AppBar 
                 position="fixed"
                 className={clsx(classes.appbar, {
-                    [classes.appbarShift]: open,
+                    [classes.appbarShift]: open
                 })}
                 elevation={0}
             >
-                <Toolbar className={classes.appbarWrapper}>
+                <Toolbar>
                     <IconButton onClick={handleDrawerOpen}>
                         <MenuIcon className={clsx(classes.icon, open && classes.hide)} />
                     </IconButton>
@@ -136,6 +140,7 @@ export default function Appbar() {
                 className={clsx(classes.content, {
                 [classes.contentShift]: open
             })}>
+            <div className={classes.drawerHeader} />
             <Switch>
               <Route exact path="/account"><Account/></Route>
               <Route exact path="/home"><DHT/></Route>
