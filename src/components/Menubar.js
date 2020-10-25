@@ -89,7 +89,7 @@ export default function Menubar(props) {
         <Icons.ArrowBackIos className={classes.iconBack} />
       </i>
       <span className={classes.menubarBrand}>
-        <Icons.EmojiEvents /><sapn className={classes.menubarBrandText}>Smarthome</sapn>
+        <Icons.EmojiEvents /><span className={classes.menubarBrandText}>Smarthome</span>
       </span>
       <div className={classes.menubarHeader}>
         <ul className={classes.menubarUI}>
