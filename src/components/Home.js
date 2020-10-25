@@ -101,7 +101,7 @@ export default function Home(props) {
             <span className={classes.homeBoxHumidity}><WiHumidity className={classes.homeBoxIcon}/></span>            
           </Paper>         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={8}>
-          <Paper className={classes.paperChart}><ChartTemp xx={props.xx}/></Paper>
+          <Paper className={classes.paperChart}><ChartTemp /></Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={4}>
           <Paper className={classes.paper}>xs=12</Paper>

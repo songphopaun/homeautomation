@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export function Fetchdht(){
    let url='https://smarthome-bu.online/sensor_DHT11List';
    var data=[]

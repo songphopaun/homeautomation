@@ -12,11 +12,11 @@ import Account from './Account'
 import DHT from '../data/DHT11'
 import Aboutme from './Aboutme'
 
+
 const useStyles = makeStyles((theme) => ({
     appbar:{
         background : '#f4f3ef',
         fontFamily : 'Nunito',
-        // height:'60px',
         borderBottom:'1px solid #ddd',
     },
     appbarShift: {
@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
           easing: theme.transitions.easing.easeOut,
           duration: theme.transitions.duration.enteringScreen,
         }),
+        [theme.breakpoints.down("sm")]:{
+          width: `calc(100% - ${50}px)`,
+        }
       },
     appbarTitle:{
         flexGrow: 1,
@@ -60,7 +63,11 @@ const useStyles = makeStyles((theme) => ({
         transition: theme.transitions.create(["margin", "width"], {
           easing: theme.transitions.easing.easeOut,
           duration: theme.transitions.duration.enteringScreen
-        })
+        }),
+        [theme.breakpoints.down("sm")]:{
+          width: `calc(100% - ${50}px)`,
+          marginLeft: '50px',
+        }
       },
       drawerHeader: {
         // necessary for content to be below app bar
@@ -147,10 +154,8 @@ export default function Appbar() {
             })}>
             <div className={classes.drawerHeader} />
             <Switch>
-              <Route exact path="/account"><Account/></Route>
               <Route exact path="/home"><DHT/></Route>
               <Route exact path="/aboutme"><Aboutme/></Route>
-
             </Switch>
             </div>
     </div>

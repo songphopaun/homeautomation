@@ -7,7 +7,7 @@ export default function ChartTemp(props) {
         data: [31, 40, 28, 51, 42, 109, 100]
       }, {
         name: 'series2',
-        data: props.xx
+        data: [20,30,60,10]
     }]
     
      const  options = {

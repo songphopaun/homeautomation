@@ -11,7 +11,10 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     width: "230px",
     background: "#343A40",
-    display: "flex",
+      // display: "flex",
+    [theme.breakpoints.down("sm")]:{
+      width: "60px",
+    }
   },
   menubarBrand: {
     color: "#fff",
@@ -22,11 +25,22 @@ const useStyles = makeStyles((theme) => ({
     left: "30px",
     borderBottom: "1px solid white",
     paddingBottom: "10px",
+    [theme.breakpoints.down("sm")]:{
+      left: "20px",
+    }
+  },
+  menubarBrandText:{
+    [theme.breakpoints.down("sm")]:{
+      display:'none'
+    }
   },
   menubarHeader: {
     position: "absolute",
     top: "60px",
     left: "-10px",
+    [theme.breakpoints.down("sm")]:{
+      left: "-20px",
+    }
   },
   menubarUI: {
     listStyle: "none",
@@ -42,6 +56,11 @@ const useStyles = makeStyles((theme) => ({
       color: "#51BCDA",
     },
   },
+  menubarTitle:{
+    [theme.breakpoints.down("sm")]:{
+     display:'none'
+    }
+  },
   menubarIcon: {
     marginRight: "10px",
     position: "relative",
@@ -54,6 +73,10 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     top: "8px",
     cursor: "pointer",
+    [theme.breakpoints.down("sm")]:{
+      marginLeft: "40px",
+      top: "2px",
+    }
   },
 }));
 
@@ -66,7 +89,7 @@ export default function Menubar(props) {
         <Icons.ArrowBackIos className={classes.iconBack} />
       </i>
       <span className={classes.menubarBrand}>
-        <Icons.EmojiEvents /> Smarthome{" "}
+        <Icons.EmojiEvents /><sapn className={classes.menubarBrandText}>Smarthome</sapn>
       </span>
       <div className={classes.menubarHeader}>
         <ul className={classes.menubarUI}>
@@ -77,7 +100,7 @@ export default function Menubar(props) {
                   <i className={classes.menubarIcon}>
                     {item.icons}
                   </i>
-                  {item.title}
+                <span className={classes.menubarTitle}>{item.title}</span>
                 </Link>
               </li>
             );
