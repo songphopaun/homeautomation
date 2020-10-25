@@ -20,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
     height:'100px',
     borderRadius:'10px',
     boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
+    transition:'0.5s ease',
+    cursor:'pointer',
+    "&:hover":{
+      transform:'scale(1.05)',
+      boxShadow: '5px 5px 5px rgba(0,0,0,0.3)'
+    },
   },
   homeText:{
     float: 'right',
