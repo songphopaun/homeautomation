@@ -80,24 +80,24 @@ export default function Home(props) {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={6} lg={3}>
           <Paper className={classes.paper}>
-            <span className={classes.homeText}>Temperature<br/><span className={classes.homeTextProps}>{props.temp}</span></span>
+            <span className={classes.homeText}>Temperature<br/><span className={classes.homeTextProps}>28</span></span>
             <span className={classes.homeBoxTemp}><RiTempHotLine className={classes.homeBoxIcon}/></span>            
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3}>
           <Paper className={classes.paper}>
-            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>{props.humidity}</span></span>
+            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>80</span></span>
             <span className={classes.homeBoxHumidity}><WiHumidity className={classes.homeBoxIcon}/></span>            
           </Paper>        
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3}>
           <Paper className={classes.paper}>
-            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>{props.humidity}</span></span>
+            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>10</span></span>
             <span className={classes.homeBoxHumidity}><WiDust className={classes.homeBoxIcon}/></span>            
           </Paper>         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3}>
           <Paper className={classes.paper}>
-            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>{props.humidity}</span></span>
+            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>50</span></span>
             <span className={classes.homeBoxHumidity}><WiHumidity className={classes.homeBoxIcon}/></span>            
           </Paper>         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={8}>

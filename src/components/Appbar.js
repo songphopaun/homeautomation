@@ -1,5 +1,4 @@
 import React , {useState} from 'react';
-import Menubar from './Menubar'
 import { makeStyles } from '@material-ui/core/styles';
 import {AppBar, Toolbar, IconButton, Typography, Drawer, Menu, MenuItem, CssBaseline} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -7,9 +6,11 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import clsx from 'clsx'
 
-import { BrowserRouter as Route,Switch} from 'react-router-dom';
+import { BrowserRouter as Route,Switch,Link} from 'react-router-dom';
+import Menubar from './Menubar'
 import Account from './Account'
 import DHT from '../data/DHT11'
+import Aboutme from './Aboutme'
 
 const useStyles = makeStyles((theme) => ({
     appbar:{
@@ -109,6 +110,10 @@ export default function Appbar() {
                         <SettingsIcon className={classes.icon}/>
                     </IconButton>
 
+                    <IconButton>
+                        <Link to="/aboutme"><SettingsIcon className={classes.icon}/></Link>
+                    </IconButton>
+
                     <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                         <AccountCircleIcon className={classes.icon} />
                         <Typography>Songphop Pornsiripiyakul</Typography>
@@ -144,6 +149,8 @@ export default function Appbar() {
             <Switch>
               <Route exact path="/account"><Account/></Route>
               <Route exact path="/home"><DHT/></Route>
+              <Route exact path="/aboutme"><Aboutme/></Route>
+
             </Switch>
             </div>
     </div>
