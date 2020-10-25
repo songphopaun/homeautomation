@@ -8,8 +8,8 @@ import clsx from 'clsx'
 
 import { BrowserRouter as Route,Switch,Link} from 'react-router-dom';
 import Menubar from './Menubar'
-import Account from './Account'
-import DHT from '../data/DHT11'
+// import Account from './Account'
+import Home from './Home'
 import Aboutme from './Aboutme'
 
 
@@ -154,7 +154,7 @@ export default function Appbar() {
             })}>
             <div className={classes.drawerHeader} />
             <Switch>
-              <Route exact path="/home"><DHT/></Route>
+              <Route exact path="/home"><Home/></Route>
               <Route exact path="/aboutme"><Aboutme/></Route>
             </Switch>
             </div>
