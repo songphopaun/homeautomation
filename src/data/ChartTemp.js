@@ -1,13 +1,30 @@
-import React from 'react'
+import React , {useState , useEffect} from 'react'
 import Chart from "react-apexcharts";
+import {FetchDhtList} from '../function/service'
 
-export default function ChartTemp(props) {
+export default function ChartTemp() {
+
+
+    const [temp, setTemp] = useState([])
+    const [humidity, setHumidity] = useState([])
+    const [time, setTime] = useState([])
+
+    useEffect(() => {
+      const data = FetchDhtList()
+      data.then(item=>{
+        setTemp(item.TempList)
+        setHumidity(item.HumidityList)
+        setTime(item.TimeList)
+      })
+    }, [])
+
+
      const series = [{
-        name: 'series1',
-        data: [31, 40, 28, 51, 42, 109, 100]
+        name: 'Temperature',
+        data: temp
       }, {
-        name: 'series2',
-        data: [20,30,60,10]
+        name: 'Humidity',
+        data: humidity
     }]
     
      const  options = {
@@ -23,7 +40,7 @@ export default function ChartTemp(props) {
         },
         xaxis: {
           type: 'datetime',
-          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+          categories: ["22:53:48", "22:44:39", "21:57:25", "21:56:25", "21:55:55", "21:55:25", "21:54:55"],        
         },
         tooltip: {
           x: {
@@ -35,7 +52,7 @@ export default function ChartTemp(props) {
     return (
         <div>
                 <Chart options={options} series={series} type="area" height={350}  />
-
+                {console.log(time)}
         </div>
     )
 }

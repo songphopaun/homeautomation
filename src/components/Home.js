@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState , useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -7,6 +7,12 @@ import {RiTempHotLine } from 'react-icons/ri'
 import {WiHumidity ,WiDust} from 'react-icons/wi'
 
 import ChartTemp from '../data/ChartTemp'
+import Temperature from '../data/Temperature'
+import Humidity from '../data/Humidity'
+
+
+import {getDHT} from '../redux/action/action'
+import {connect} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,21 +78,30 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Home(props) {
+function Home(props) {
   const classes = useStyles();
+
+
+  useEffect(() => {
+    props.getDHT()
+    console.log("object")
+    return () => {
+        console.log('Unmount')
+    }
+  },)
 
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={6} lg={3}>
           <Paper className={classes.paper}>
-            <span className={classes.homeText}>Temperature<br/><span className={classes.homeTextProps}>28</span></span>
+            <span className={classes.homeText}>Temperature<br/><span className={classes.homeTextProps}>{props.temp}</span></span>
             <span className={classes.homeBoxTemp}><RiTempHotLine className={classes.homeBoxIcon}/></span>            
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3}>
           <Paper className={classes.paper}>
-            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>80</span></span>
+            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>{props.humi}</span></span>
             <span className={classes.homeBoxHumidity}><WiHumidity className={classes.homeBoxIcon}/></span>            
           </Paper>        
         </Grid>
@@ -101,7 +116,7 @@ export default function Home(props) {
             <span className={classes.homeBoxHumidity}><WiHumidity className={classes.homeBoxIcon}/></span>            
           </Paper>         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={8}>
-          <Paper className={classes.paperChart}><ChartTemp /></Paper>
+          {/* <Paper className={classes.paperChart}><ChartTemp /></Paper> */}
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={4}>
           <Paper className={classes.paper}>xs=12</Paper>
@@ -110,3 +125,12 @@ export default function Home(props) {
     </div>
   );
 }
+
+const mapStateToProps = (state) =>{
+  return{
+      temp:state.temp,
+      humi:state.humi,    
+      // time:state.time
+  }
+}
+export default connect(mapStateToProps,{getDHT})(Home)

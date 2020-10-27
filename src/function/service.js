@@ -1,20 +1,27 @@
 import axios from 'axios';
 
-export function Fetchdht(){
+export async function FetchDht(){
    let url='https://smarthome-bu.online/sensor_DHT11List';
-   const data=[]
-    axios.get(url).then(res => {
-        data.push(res.data[0])
-        console.log(data)
-      })
-      return data
-}
-export function Fetchdhtlineone(){
+   const res = await axios.get(url)
+   return res.data
+  }
+
+
+export async function FetchDhtList(){
+    const TempList = []
+    const HumidityList =[]
+    const TimeList =[]
     let url='https://smarthome-bu.online/sensor_DHT11List';
-    const data=[]
-    axios.get(url)
-      .then(res => {
-        data.push(res.data)
-      })
-      return data
-}
+    const res = await axios.get(url)
+    for(let i=0; i<7 ; i++){
+      TempList.push(res.data[i].Temperature)
+      HumidityList.push(res.data[i].Humidity)
+      TimeList.push(res.data[i].Time)
+    }
+    const data = {
+      TempList,
+      HumidityList,
+      TimeList
+    }
+    return data
+  }
