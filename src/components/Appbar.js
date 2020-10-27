@@ -8,7 +8,11 @@ import clsx from 'clsx'
 
 import { BrowserRouter as Route,Switch,Link} from 'react-router-dom';
 import Menubar from './Menubar'
+<<<<<<< HEAD
 import Account from './Account'
+=======
+// import Account from './Account'
+>>>>>>> 52bbe7bf7427555f6e4c648231c23c621d4ec3a9
 import Home from './Home'
 import Aboutme from './Aboutme'
 // import DHT11 from '../data/DHT11'

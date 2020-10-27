@@ -5,7 +5,8 @@ import Grid from '@material-ui/core/Grid';
 
 import {RiTempHotLine } from 'react-icons/ri'
 import {WiHumidity ,WiDust} from 'react-icons/wi'
-
+import Temp from '../data/Temp'
+import Humidity from '../data/Humidity'
 import ChartTemp from '../data/ChartTemp'
 import Temperature from '../data/Temperature'
 import Humidity from '../data/Humidity'
@@ -95,13 +96,21 @@ function Home(props) {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={6} lg={3}>
           <Paper className={classes.paper}>
+<<<<<<< HEAD
             <span className={classes.homeText}>Temperature<br/><span className={classes.homeTextProps}>{props.temp}</span></span>
+=======
+            <span className={classes.homeText}>Temperature<br/><span className={classes.homeTextProps}><Temp/></span></span>
+>>>>>>> 52bbe7bf7427555f6e4c648231c23c621d4ec3a9
             <span className={classes.homeBoxTemp}><RiTempHotLine className={classes.homeBoxIcon}/></span>            
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3}>
           <Paper className={classes.paper}>
+<<<<<<< HEAD
             <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>{props.humi}</span></span>
+=======
+            <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}><Humidity/></span></span>
+>>>>>>> 52bbe7bf7427555f6e4c648231c23c621d4ec3a9
             <span className={classes.homeBoxHumidity}><WiHumidity className={classes.homeBoxIcon}/></span>            
           </Paper>        
         </Grid>
@@ -115,8 +124,13 @@ function Home(props) {
             <span className={classes.homeText}>Humidity<br/><span className={classes.homeTextProps}>50</span></span>
             <span className={classes.homeBoxHumidity}><WiHumidity className={classes.homeBoxIcon}/></span>            
           </Paper>         </Grid>
+<<<<<<< HEAD
         <Grid item xs={12} sm={6} md={6} lg={8}>
           {/* <Paper className={classes.paperChart}><ChartTemp /></Paper> */}
+=======
+        <Grid item xs={12} sm={6} md={6} lg={12}>
+          <Paper className={classes.paperChart}><ChartTemp /></Paper>
+>>>>>>> 52bbe7bf7427555f6e4c648231c23c621d4ec3a9
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={4}>
           <Paper className={classes.paper}>xs=12</Paper>
